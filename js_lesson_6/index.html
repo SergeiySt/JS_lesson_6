@@ -3,12 +3,41 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Аудио - Видео плеер</title>
+    <title>Відео та аудіо плеєр</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-</body>
+    <body>
+        <div>
+            <h1>Demo for &lt;video&gt; styling</h1>
+            <video id="videoClip" poster="1234.jpg">
+                <source src="Abba.mp4" type="video/mp4" />
+            </video>
+            <div id="clipControls" class="d-flex justify-content-center mt-3">
+                <input type="button" id="btnPlay" class="btn btn-primary" />
+                <input type="button" id="btnStop" class="btn btn-danger" />
+                <input type="button" id="btnFull" class="btn btn-success" />
+                <progress value=0></progress>
+                <input type="button" id="btnMute" class="btn btn-danger" />
+                <input type="button" id="btnQuiet" class="btn btn-warning" />
+                <input type="button" id="btnLoud" class="btn btn-success" />
+            </div>
+            <p id="out"></p>
+        </div>
+
+        <h1>Demo for &lt;audio&gt; tag</h1>
+        <audio id="audioTrack" controls>
+            <source src="drum.mp3" type="audio/mpeg" />
+            <source src="drum.wav" type="audio/wav" />
+            <source src="drum.ogg" type="audio/ogg" />
+        </audio>
+        <script src="script.js"></script>
+    </body>
 
 </html>
