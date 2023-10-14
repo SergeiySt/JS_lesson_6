@@ -80,6 +80,13 @@ function configClip() {
     btnLoud.addEventListener('click', loud);
     btnQuiet.addEventListener('click', quiet);
     btnFull.addEventListener('click', full);
+
+
+    btnPlayAudio.addEventListener('click', playAudio);
+    btnStopAudio.addEventListener('click', stopAudio);
+    btnMuteAudio.addEventListener('click', muteAudio);
+    btnLoudAudio.addEventListener('click', loudAudio);
+    btnQuietAudio.addEventListener('click', quietAudio);
 }
 
 function play(e) {
@@ -92,6 +99,49 @@ function play(e) {
     }
 }
 
+function playAudio(e) {
+    if (window.track.paused || window.track.ended) {
+        window.track.play();
+        e.target.value = symPause;
+    }
+    else {
+        window.track.pause();
+        e.target.value = symPlay;
+    }
+    if (!window.clip.paused) {
+        window.clip.pause();
+        document.getElementById("btnPlay").value = symPlay;
+    }
+}
+
+
+function stopAudio() {
+    window.track.pause();
+    window.track.currentTime = 0;
+    document.getElementById("btnPlayAudio").value = symPlay;
+}
+
+
+function mute(e) {
+    if (window.track.muted) {
+        window.track.muted = false;
+        e.target.value = symMute;
+    }
+    else {
+        window.track.muted = true;
+        e.target.value = symUnmute;
+    }
+}
+
+function muteAudio(e) {
+    if (window.track.muted) {
+        window.track.muted = false;
+        e.target.value = symMute;
+    } else {
+        window.track.muted = true;
+        e.target.value = symUnmute;
+    }
+}
 
 function stop() {
     window.clip.pause();
@@ -107,6 +157,14 @@ function mute(e) {
         e.target.value = symUnmute;
     }
 }
+function loudAudio() {
+    if (window.track.volume <= 0.9) window.track.volume += 0.1;
+}
+
+function quietAudio() {
+    if (window.track.volume >= 0.1) window.track.volume -= 0.1;
+}
+
 function loud() {
     if (window.clip.volume <= 0.9) window.clip.volume += 0.1;
 }
