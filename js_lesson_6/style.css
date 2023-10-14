@@ -1,0 +1,18 @@
+#videoClip {
+    width: 450px;
+}
+
+#clipControls {
+    align-items: center;
+    display: flex;
+    width: 450px;
+}
+
+input[type=button] {
+    font-size: large;
+}
+
+input[type=button] {
+    font-size: 12px;
+    /* Размер шрифта */
+}
