@@ -15,28 +15,34 @@
 
     <body>
         <div>
-            <h1>Demo for &lt;video&gt; styling</h1>
-            <video id="videoClip" poster="1234.jpg">
-                <source src="Abba.mp4" type="video/mp4" />
-            </video>
-            <div id="clipControls" class="d-flex justify-content-center mt-3">
-                <input type="button" id="btnPlay" class="btn btn-primary" />
-                <input type="button" id="btnStop" class="btn btn-danger" />
-                <input type="button" id="btnFull" class="btn btn-success" />
-                <progress value=0></progress>
-                <input type="button" id="btnMute" class="btn btn-danger" />
-                <input type="button" id="btnQuiet" class="btn btn-warning" />
-                <input type="button" id="btnLoud" class="btn btn-success" />
-            </div>
-            <p id="out"></p>
+            <h2>Відео плеєр</h1>
+                <video id="videoClip" poster="1234.jpg">
+                    <source src="Abba.mp4" type="video/mp4" />
+                </video>
+                <div id="clipControls" class="d-flex justify-content-center mt-3">
+                    <input type="button" id="btnPlay" class="btn btn-primary" />
+                    <input type="button" id="btnStop" class="btn btn-danger" />
+                    <input type="button" id="btnFull" class="btn btn-success" />
+                    <progress value=0></progress>
+                    <input type="button" id="btnMute" class="btn btn-danger" />
+                    <input type="button" id="btnQuiet" class="btn btn-warning" />
+                    <input type="button" id="btnLoud" class="btn btn-success" />
+                </div>
+                <p id="out"></p>
         </div>
 
-        <h1>Demo for &lt;audio&gt; tag</h1>
-        <audio id="audioTrack" controls>
-            <source src="drum.mp3" type="audio/mpeg" />
-            <source src="drum.wav" type="audio/wav" />
-            <source src="drum.ogg" type="audio/ogg" />
+        <h1>Аудіо плеєр</h1>
+        <audio id="audioTrack">
+            <source src="video.m4a" type="audio/mp3" />
         </audio>
+        <div id="trackControls">
+            <input type="button" id="btnPlayAudio" class="btn btn-primary" />
+            <input type="button" id="btnStopAudio" class="btn btn-danger" />
+            <progress value=0></progress>
+            <input type="button" id="btnMuteAudio" class="btn btn-danger" />
+            <input type="button" id="btnQuietAudio" class="btn btn-warning" />
+            <input type="button" id="btnLoudAudio" class="btn btn-success" />
+        </div>
         <script src="script.js"></script>
     </body>
 
