@@ -10,6 +10,8 @@ const symQuiet = "\u{1F509}";
 
 document.addEventListener("DOMContentLoaded", configClip);
 
+document.addEventListener("DOMContentLoaded", configTrack);
+
 function configClip() {
 
     window.clip = document.getElementById("videoClip");
@@ -29,7 +31,18 @@ function configClip() {
     const progress = document.querySelector("#clipControls progress");
     if (!progress) throw "clipControls progress element not found";
 
+    window.track = document.getElementById("audioTrack");
+    const btnPlayAudio = document.getElementById("btnPlayAudio");
+    const btnStopAudio = document.getElementById("btnStopAudio");
+    const btnMuteAudio = document.getElementById("btnMuteAudio");
+    const btnLoudAudio = document.getElementById("btnLoudAudio");
+    const btnQuietAudio = document.getElementById("btnQuietAudio");
+    const progressAudio = document.querySelector("#trackControls progress");
+
     window.clip.controls = false;
+
+    window.track.controls = false;
+
     progress.max = 100;
     btnPlay.value = symPlay;
     btnStop.value = symStop;
@@ -38,12 +51,29 @@ function configClip() {
     btnQuiet.value = symQuiet;
     btnFull.value = symFull;
 
+    progressAudio.max = 100;
+    btnPlayAudio.value = symPlay;
+    btnStopAudio.value = symStop;
+    btnMuteAudio.value = symMute;
+    btnLoudAudio.value = symLoud;
+    btnQuietAudio.value = symQuiet;
+
+
     window.clip.addEventListener('timeupdate', () => {
         progress.value = window.clip.currentTime * 100 / window.clip.duration;
         if (progress.value == 100) {
             btnPlay.value = symPlay;
         }
     });
+
+    window.track.addEventListener('timeupdate', () => {
+        progressAudio.value = window.track.currentTime * 100 / window.track.duration;
+        if (progressAudio.value === 100) {
+            btnPlayAudio.value = symPlay;
+        }
+    });
+
+
     btnPlay.addEventListener('click', play);
     btnStop.addEventListener('click', stop);
     btnMute.addEventListener('click', mute);
